@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, User, LogOut } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Menu", href: "/menu" },
+  { label: "Order Online", href: "/order" },
   { label: "Gallery", href: "/gallery" },
   { label: "Reviews", href: "/reviews" },
   { label: "Reservations", href: "/reservations" },
@@ -14,6 +16,7 @@ const navLinks = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const { user, signOut } = useAuth();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm">
@@ -21,7 +24,7 @@ const Navbar = () => {
         <Link to="/" className="font-display text-2xl font-bold text-primary-foreground tracking-wide">
           Spice Garden
         </Link>
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -31,9 +34,26 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
+          {user ? (
+            <button
+              onClick={() => signOut()}
+              className="flex items-center gap-1 text-primary-foreground/80 hover:text-secondary transition-colors text-sm font-medium tracking-wide uppercase"
+            >
+              <LogOut size={16} />
+              Sign Out
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="flex items-center gap-1 bg-secondary text-secondary-foreground px-4 py-2 rounded font-bold text-sm tracking-wide uppercase hover:bg-spice-light transition-colors"
+            >
+              <User size={16} />
+              Sign In
+            </Link>
+          )}
         </div>
         <button
-          className="md:hidden text-primary-foreground"
+          className="lg:hidden text-primary-foreground"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -41,7 +61,7 @@ const Navbar = () => {
         </button>
       </div>
       {open && (
-        <div className="md:hidden bg-primary/98 border-t border-primary-foreground/10 pb-4">
+        <div className="lg:hidden bg-primary/98 border-t border-primary-foreground/10 pb-4">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -52,6 +72,22 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
+          {user ? (
+            <button
+              onClick={() => { signOut(); setOpen(false); }}
+              className="block w-full text-left px-6 py-3 text-primary-foreground/80 hover:text-secondary transition-colors text-sm tracking-wide uppercase"
+            >
+              Sign Out
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              onClick={() => setOpen(false)}
+              className="block px-6 py-3 text-secondary font-bold text-sm tracking-wide uppercase"
+            >
+              Sign In
+            </Link>
+          )}
         </div>
       )}
     </nav>
