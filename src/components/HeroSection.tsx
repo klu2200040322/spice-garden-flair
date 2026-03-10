@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
@@ -19,18 +20,18 @@ const HeroSection = () => {
           Authentic Indian Flavors
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="#menu"
+          <Link
+            to="/menu"
             className="inline-block bg-secondary hover:bg-spice-light text-secondary-foreground px-8 py-3 rounded font-body font-bold tracking-wider uppercase text-sm transition-all hover:shadow-lg hover:shadow-secondary/30"
           >
             View Menu
-          </a>
-          <a
-            href="#reservation"
+          </Link>
+          <Link
+            to="/reservations"
             className="inline-block border-2 border-primary-foreground/60 hover:border-secondary hover:text-secondary text-primary-foreground px-8 py-3 rounded font-body font-bold tracking-wider uppercase text-sm transition-all"
           >
             Reserve Table
-          </a>
+          </Link>
         </div>
       </div>
     </section>
