@@ -18,6 +18,7 @@ const navLinks = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { user, signOut } = useAuth();
+  const { isAdmin } = useAdminCheck();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm">
