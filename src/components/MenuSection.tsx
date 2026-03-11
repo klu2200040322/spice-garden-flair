@@ -4,10 +4,10 @@ import vegBiryani from "@/assets/veg-biryani.jpg";
 import tandooriChicken from "@/assets/tandoori-chicken.jpg";
 
 const menuItems = [
-  { name: "Paneer Tikka", price: "$14.99", description: "Marinated cottage cheese grilled in tandoor with bell peppers", image: paneerTikka, tag: "Vegetarian" },
-  { name: "Butter Chicken", price: "$17.99", description: "Tender chicken in rich, creamy tomato-butter sauce", image: butterChicken, tag: "Bestseller" },
-  { name: "Veg Biryani", price: "$15.99", description: "Fragrant basmati rice layered with seasonal vegetables & saffron", image: vegBiryani, tag: "Vegetarian" },
-  { name: "Tandoori Chicken", price: "$18.99", description: "Whole chicken marinated in yogurt and spices, clay-oven roasted", image: tandooriChicken, tag: "Chef's Pick" },
+  { name: "Paneer Tikka", price: "₹449", description: "Marinated cottage cheese grilled in tandoor with bell peppers", image: paneerTikka, tag: "Vegetarian" },
+  { name: "Butter Chicken", price: "₹549", description: "Tender chicken in rich, creamy tomato-butter sauce", image: butterChicken, tag: "Bestseller" },
+  { name: "Veg Biryani", price: "₹399", description: "Fragrant basmati rice layered with seasonal vegetables & saffron", image: vegBiryani, tag: "Vegetarian" },
+  { name: "Tandoori Chicken", price: "₹599", description: "Whole chicken marinated in yogurt and spices, clay-oven roasted", image: tandooriChicken, tag: "Chef's Pick" },
 ];
 
 const MenuSection = () => {

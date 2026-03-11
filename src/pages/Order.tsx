@@ -226,7 +226,7 @@ const Order = () => {
 
                   <div className="flex justify-between text-lg font-bold text-foreground pt-2 border-t border-border">
                     <span>Total</span>
-                    <span className="text-secondary">${total.toFixed(2)}</span>
+                    <span className="text-secondary">₹{total.toFixed(2)}</span>
                   </div>
 
                   {!user && (
