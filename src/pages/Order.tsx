@@ -123,7 +123,7 @@ const Order = () => {
                       <h3 className="font-display text-lg font-semibold text-foreground">{item.name}</h3>
                       {item.tag && <span className="text-secondary text-xs font-bold tracking-wider uppercase">{item.tag}</span>}
                     </div>
-                    <p className="font-display text-xl font-bold text-secondary">${item.price.toFixed(2)}</p>
+                    <p className="font-display text-xl font-bold text-secondary">₹{item.price.toFixed(2)}</p>
                   </div>
                   <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{item.description}</p>
                   {inCart ? (
