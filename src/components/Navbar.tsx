@@ -83,6 +83,15 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
+          {isAdmin && (
+            <Link
+              to="/admin"
+              onClick={() => setOpen(false)}
+              className="block px-6 py-3 text-secondary font-bold text-sm tracking-wide uppercase"
+            >
+              Admin Panel
+            </Link>
+          )}
           {user ? (
             <button
               onClick={() => { signOut(); setOpen(false); }}
