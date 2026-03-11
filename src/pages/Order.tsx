@@ -123,7 +123,7 @@ const Order = () => {
                       <h3 className="font-display text-lg font-semibold text-foreground">{item.name}</h3>
                       {item.tag && <span className="text-secondary text-xs font-bold tracking-wider uppercase">{item.tag}</span>}
                     </div>
-                    <p className="font-display text-xl font-bold text-secondary">${item.price.toFixed(2)}</p>
+                    <p className="font-display text-xl font-bold text-secondary">₹{item.price.toFixed(2)}</p>
                   </div>
                   <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{item.description}</p>
                   {inCart ? (
@@ -162,7 +162,7 @@ const Order = () => {
               className="fixed bottom-6 right-6 z-40 bg-secondary text-secondary-foreground px-6 py-3 rounded-full font-bold shadow-lg hover:bg-spice-light transition-all flex items-center gap-2"
             >
               <ShoppingCart size={20} />
-              {itemCount} items · ${total.toFixed(2)}
+              {itemCount} items · ₹{total.toFixed(2)}
             </button>
           )}
 
@@ -180,7 +180,7 @@ const Order = () => {
                   <div key={item.id} className="flex items-center justify-between py-3 border-b border-border">
                     <div>
                       <p className="font-semibold text-foreground">{item.name}</p>
-                      <p className="text-muted-foreground text-sm">${item.price.toFixed(2)} each</p>
+                      <p className="text-muted-foreground text-sm">₹{item.price.toFixed(2)} each</p>
                     </div>
                     <div className="flex items-center gap-2">
                       <button onClick={() => updateQuantity(item.id, item.quantity - 1)}
@@ -226,7 +226,7 @@ const Order = () => {
 
                   <div className="flex justify-between text-lg font-bold text-foreground pt-2 border-t border-border">
                     <span>Total</span>
-                    <span className="text-secondary">${total.toFixed(2)}</span>
+                    <span className="text-secondary">₹{total.toFixed(2)}</span>
                   </div>
 
                   {!user && (
