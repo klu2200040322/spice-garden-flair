@@ -162,7 +162,7 @@ const Order = () => {
               className="fixed bottom-6 right-6 z-40 bg-secondary text-secondary-foreground px-6 py-3 rounded-full font-bold shadow-lg hover:bg-spice-light transition-all flex items-center gap-2"
             >
               <ShoppingCart size={20} />
-              {itemCount} items · ${total.toFixed(2)}
+              {itemCount} items · ₹{total.toFixed(2)}
             </button>
           )}
 
