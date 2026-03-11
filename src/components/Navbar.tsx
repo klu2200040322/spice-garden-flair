@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, User, LogOut } from "lucide-react";
+import { Menu, X, User, LogOut, Shield } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import { useAdminCheck } from "@/hooks/useAdminCheck";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -17,6 +18,7 @@ const navLinks = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { user, signOut } = useAuth();
+  const { isAdmin } = useAdminCheck();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm">
@@ -34,6 +36,15 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
+          {isAdmin && (
+            <Link
+              to="/admin"
+              className="flex items-center gap-1 text-primary-foreground/80 hover:text-secondary transition-colors text-sm font-medium tracking-wide uppercase"
+            >
+              <Shield size={16} />
+              Admin
+            </Link>
+          )}
           {user ? (
             <button
               onClick={() => signOut()}
@@ -72,6 +83,15 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
+          {isAdmin && (
+            <Link
+              to="/admin"
+              onClick={() => setOpen(false)}
+              className="block px-6 py-3 text-secondary font-bold text-sm tracking-wide uppercase"
+            >
+              Admin Panel
+            </Link>
+          )}
           {user ? (
             <button
               onClick={() => { signOut(); setOpen(false); }}

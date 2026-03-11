@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { CartProvider } from "@/contexts/CartContext";
+import AdminGuard from "@/components/AdminGuard";
 import Index from "./pages/Index.tsx";
 import Menu from "./pages/Menu.tsx";
 import About from "./pages/About.tsx";
@@ -17,6 +18,10 @@ import Login from "./pages/Login.tsx";
 import Signup from "./pages/Signup.tsx";
 import ForgotPassword from "./pages/ForgotPassword.tsx";
 import ResetPassword from "./pages/ResetPassword.tsx";
+import AdminDashboard from "./pages/admin/AdminDashboard.tsx";
+import AdminOrders from "./pages/admin/AdminOrders.tsx";
+import AdminReservations from "./pages/admin/AdminReservations.tsx";
+import AdminMenu from "./pages/admin/AdminMenu.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -42,6 +47,10 @@ const App = () => (
               <Route path="/signup" element={<Signup />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/admin" element={<AdminGuard><AdminDashboard /></AdminGuard>} />
+              <Route path="/admin/orders" element={<AdminGuard><AdminOrders /></AdminGuard>} />
+              <Route path="/admin/reservations" element={<AdminGuard><AdminReservations /></AdminGuard>} />
+              <Route path="/admin/menu" element={<AdminGuard><AdminMenu /></AdminGuard>} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
