@@ -180,7 +180,7 @@ const Order = () => {
                   <div key={item.id} className="flex items-center justify-between py-3 border-b border-border">
                     <div>
                       <p className="font-semibold text-foreground">{item.name}</p>
-                      <p className="text-muted-foreground text-sm">${item.price.toFixed(2)} each</p>
+                      <p className="text-muted-foreground text-sm">₹{item.price.toFixed(2)} each</p>
                     </div>
                     <div className="flex items-center gap-2">
                       <button onClick={() => updateQuantity(item.id, item.quantity - 1)}
