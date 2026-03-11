@@ -36,6 +36,15 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
+          {isAdmin && (
+            <Link
+              to="/admin"
+              className="flex items-center gap-1 text-primary-foreground/80 hover:text-secondary transition-colors text-sm font-medium tracking-wide uppercase"
+            >
+              <Shield size={16} />
+              Admin
+            </Link>
+          )}
           {user ? (
             <button
               onClick={() => signOut()}
