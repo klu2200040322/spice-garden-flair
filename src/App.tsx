@@ -14,6 +14,7 @@ import Reviews from "./pages/Reviews.tsx";
 import Reservations from "./pages/Reservations.tsx";
 import Contact from "./pages/Contact.tsx";
 import Order from "./pages/Order.tsx";
+import OrderHistory from "./pages/OrderHistory.tsx";
 import Login from "./pages/Login.tsx";
 import Signup from "./pages/Signup.tsx";
 import ForgotPassword from "./pages/ForgotPassword.tsx";
