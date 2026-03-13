@@ -48,36 +48,23 @@ const Order = () => {
       return;
     }
     setSubmitting(true);
-    const { data: order, error: orderError } = await supabase
-      .from("orders")
-      .insert({
-        user_id: user.id,
+
+    const { data, error } = await supabase.functions.invoke("place-order", {
+      body: {
+        items: cartItems.map((item) => ({
+          menu_item_id: item.id,
+          quantity: item.quantity,
+        })),
         order_type: orderType,
         payment_method: paymentMethod,
         special_instructions: instructions || null,
-        total,
-      } as any)
-      .select()
-      .single();
+      },
+    });
 
-    if (orderError || !order) {
-      toast.error("Failed to place order. Please try again.");
-      setSubmitting(false);
-      return;
-    }
-
-    const orderItems = cartItems.map((item) => ({
-      order_id: order.id,
-      menu_item_id: item.id,
-      quantity: item.quantity,
-      price: item.price,
-    }));
-
-    const { error: itemsError } = await supabase.from("order_items").insert(orderItems);
     setSubmitting(false);
 
-    if (itemsError) {
-      toast.error("Failed to save order items.");
+    if (error || !data?.success) {
+      toast.error(data?.error || "Failed to place order. Please try again.");
     } else {
       toast.success("Order placed successfully! We'll have it ready soon.");
       clearCart();
