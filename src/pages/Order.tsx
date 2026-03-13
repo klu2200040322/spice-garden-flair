@@ -24,6 +24,7 @@ const Order = () => {
   const [menuItems, setMenuItems] = useState<Tables<"menu_items">[]>([]);
   const [activeCategory, setActiveCategory] = useState("starters");
   const [orderType, setOrderType] = useState<"pickup" | "dine-in">("pickup");
+  const [paymentMethod, setPaymentMethod] = useState<"cash">("cash");
   const [instructions, setInstructions] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [showCart, setShowCart] = useState(false);
