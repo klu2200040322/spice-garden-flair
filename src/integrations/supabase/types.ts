@@ -94,6 +94,7 @@ export type Database = {
           created_at: string
           id: string
           order_type: string
+          payment_method: string
           special_instructions: string | null
           status: string
           total: number
@@ -104,6 +105,7 @@ export type Database = {
           created_at?: string
           id?: string
           order_type: string
+          payment_method?: string
           special_instructions?: string | null
           status?: string
           total?: number
@@ -114,6 +116,7 @@ export type Database = {
           created_at?: string
           id?: string
           order_type?: string
+          payment_method?: string
           special_instructions?: string | null
           status?: string
           total?: number
