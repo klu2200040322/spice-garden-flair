@@ -7,7 +7,7 @@ import { componentTagger } from "lovable-tagger";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   // GitHub Pages deployment fix kosam ee line chala important
-  base: "/spice-garden-flair/",
+  base: "/",
 
   server: {
     host: "::",
