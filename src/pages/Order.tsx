@@ -24,6 +24,7 @@ const Order = () => {
   const [menuItems, setMenuItems] = useState<Tables<"menu_items">[]>([]);
   const [activeCategory, setActiveCategory] = useState("starters");
   const [orderType, setOrderType] = useState<"pickup" | "dine-in">("pickup");
+  const [paymentMethod, setPaymentMethod] = useState<"cash">("cash");
   const [instructions, setInstructions] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [showCart, setShowCart] = useState(false);
@@ -52,9 +53,10 @@ const Order = () => {
       .insert({
         user_id: user.id,
         order_type: orderType,
+        payment_method: paymentMethod,
         special_instructions: instructions || null,
         total,
-      })
+      } as any)
       .select()
       .single();
 
@@ -211,6 +213,19 @@ const Order = () => {
                         </button>
                       ))}
                     </div>
+                  </div>
+
+                  <div>
+                    <label className="text-sm font-bold text-foreground tracking-wide uppercase block mb-2">Payment Method</label>
+                    <div className="flex gap-3">
+                      <button
+                        onClick={() => setPaymentMethod("cash")}
+                        className="flex-1 py-2 rounded font-bold text-sm uppercase tracking-wide transition-all bg-secondary text-secondary-foreground"
+                      >
+                        💵 Cash on {orderType === "pickup" ? "Pickup" : "Delivery"}
+                      </button>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-1">Pay when you collect your order</p>
                   </div>
 
                   <div>
