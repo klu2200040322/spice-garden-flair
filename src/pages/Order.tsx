@@ -216,6 +216,19 @@ const Order = () => {
                   </div>
 
                   <div>
+                    <label className="text-sm font-bold text-foreground tracking-wide uppercase block mb-2">Payment Method</label>
+                    <div className="flex gap-3">
+                      <button
+                        onClick={() => setPaymentMethod("cash")}
+                        className="flex-1 py-2 rounded font-bold text-sm uppercase tracking-wide transition-all bg-secondary text-secondary-foreground"
+                      >
+                        💵 Cash on {orderType === "pickup" ? "Pickup" : "Delivery"}
+                      </button>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-1">Pay when you collect your order</p>
+                  </div>
+
+                  <div>
                     <label className="text-sm font-bold text-foreground tracking-wide uppercase block mb-2">Special Instructions</label>
                     <textarea
                       value={instructions}
