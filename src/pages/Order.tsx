@@ -53,9 +53,10 @@ const Order = () => {
       .insert({
         user_id: user.id,
         order_type: orderType,
+        payment_method: paymentMethod,
         special_instructions: instructions || null,
         total,
-      })
+      } as any)
       .select()
       .single();
 
